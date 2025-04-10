@@ -16,7 +16,8 @@ const transporter = nodemailer.createTransport({
 
 // Registration page for normal users
 router.get('/register', (req, res) => {
-  res.render('register');
+  // Passing default errors value
+  res.render('register', { errors: [] });
 });
 
 // Registration handler for normal users
@@ -72,9 +73,10 @@ router.post('/register', (req, res) => {
   });
 });
 
-// Login page
+// Login page for normal users and admin
 router.get('/login', (req, res) => {
-  res.render('login');
+  // Passing default errors value to avoid "errors is not defined"
+  res.render('login', { errors: [] });
 });
 
 // Login handler for normal users and admin
