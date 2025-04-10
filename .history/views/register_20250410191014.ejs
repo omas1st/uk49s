@@ -1,0 +1,28 @@
+<!-- views/register.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Apex Winning Platform</title>
+  <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+  <h1>Register</h1>
+  <form action="/register" method="POST">
+    <label>Username:</label>
+    <input type="text" name="username" required>
+    <br>
+    <label>Name:</label>
+    <input type="text" name="name" required>
+    <br>
+    <label>Email:</label>
+    <input type="email" name="email" required>
+    <br>
+    <label>Password:</label>
+    <input type="password" name="password" required>
+    <br>
+    <button type="submit">Register</button>
+  </form>
+  <p>Already registered? <a href="/login">Login here</a></p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <h2>Login</h2>
+    <% if (errors) { %>
+        <% errors.forEach(function(error){ %>
+            <p style="color:red;"><%= error.msg %></p>
+        <% }); %>
+    <% } %>
+    <% if (success_msg) { %>
+        <p style="color:green;"><%= success_msg %></p>
+    <% } %>
+    <form action="/login" method="POST">
+        <label>Email:</label>
+        <input type="email" name="email" required>
+        <br>
+        <label>Password:</label>
+        <input type="password" name="password" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="/register">Register here</a></p>
+</body>
+</html>

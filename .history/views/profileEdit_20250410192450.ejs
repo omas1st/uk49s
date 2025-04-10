@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile for <%= user.name %></title>
+    <link rel="stylesheet" href="/css/profileEdit.css">
+</head>
+<body>
+    <h2>Edit URLs for <%= user.name %></h2>
+    <form action="/admin/profile/<%= user._id %>" method="POST">
+        <% for(let i = 0; i < 15; i++) { 
+            let currentUrl = (user.urls && user.urls[i]) ? user.urls[i].url : '';
+            let approved   = (user.urls && user.urls[i]) ? user.urls[i].approved : false;
+        %>
+            <div>
+                <label>URL <%= i+1 %>:</label>
+                <input type="text" name="url<%= i %>" value="<%= currentUrl %>">
+                <select name="action<%= i %>">
+                    <option value="approve" <%= approved ? "selected" : "" %>>Approve</option>
+                    <option value="disapprove" <%= !approved ? "selected" : "" %>>Disapprove</option>
+                </select>
+            </div>
+        <% } %>
+        <button type="submit">Update URLs</button>
+    </form>
+    <br>
+    <a href="/admin">Back to Admin Panel</a>
+</body>
+</html>

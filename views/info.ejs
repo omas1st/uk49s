@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Information to <%= user.name %></title>
+    <link rel="stylesheet" href="/css/info.css">
+</head>
+<body>
+    <h2>Send Information Message to <%= user.name %></h2>
+    <form action="/admin/information/<%= user._id %>" method="POST">
+        <textarea name="information" rows="5" cols="30"><%= user.information %></textarea>
+        <br>
+        <button type="submit">Send Information</button>
+    </form>
+    <br>
+    <a href="/admin">Back to Admin Panel</a>
+</body>
+</html>

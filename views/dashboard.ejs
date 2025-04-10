@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <h1>Welcome, <%= user.name %>!</h1>
+    <h2>Apex Winning Platform</h2>
+    <p>Please press the continue button below to continue.</p>
+    <a href="<%= continueUrl %>">
+        <button>Continue</button>
+    </a>
+
+    <h3>Information</h3>
+    <p><%= user.information ? user.information : 'No messages yet.' %></p>
+    
+    <h3>Send a Message</h3>
+    <form action="/dashboard/message" method="POST">
+        <label>Username:</label>
+        <input type="text" name="username" required>
+        <br>
+        <label>Message:</label>
+        <textarea name="message" required></textarea>
+        <br>
+        <button type="submit">Send Message</button>
+    </form>
+    <br>
+    <a href="/logout">Logout</a>
+</body>
+</html>

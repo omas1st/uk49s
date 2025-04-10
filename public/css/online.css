@@ -1,0 +1,12 @@
+/* public/css/online.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+}

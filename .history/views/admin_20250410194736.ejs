@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <form method="GET" action="/admin">
+        <input type="text" name="search" placeholder="Search users by email, name, or username" value="<%= searchQuery %>">
+        <button type="submit">Search</button>
+    </form>
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(function(user){ %>
+            <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.username %></td>
+                <td>
+                    <a href="/admin/profile/<%= user._id %>">Profile</a>
+                    <form action="/admin/delete/<%= user._id %>" method="POST" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Are you sure to delete this user?')">Delete</button>
+                    </form>
+                    <a href="/admin/information/<%= user._id %>">Information</a>
+                </td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <br>
+    <a href="/admin/online">Online Users</a>
+    <br>
+    <a href="/logout">Logout</a>
+</body>
+</html>
