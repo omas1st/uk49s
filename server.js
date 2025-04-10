@@ -57,6 +57,11 @@ app.use('/', authRoutes);
 app.use('/dashboard', dashboardRoutes);
 app.use('/admin', adminRoutes);
 
-// Use port 3001 unless overridden by environment variable
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+// For local development, listen on a port; for Vercel, export the app
+if (require.main === module) {
+  const PORT = process.env.PORT || 3001;
+  app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+} else {
+  // Export the app as a function for Vercel's serverless environment
+  module.exports = app;
+}
